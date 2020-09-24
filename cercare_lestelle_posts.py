@@ -1,4 +1,5 @@
 import requests
+from secrets import tumblr_api_key
 
 type_list = ['text', 'photo', 'quote', 'link', 'answer', 'video', 'audio', 'chat']
 posts_dict = {}
@@ -7,7 +8,7 @@ for type in type_list:
 
     posts_dict[f'{type}_posts'] = []
 
-    api_key = "BDDt1XJlarOmVOiDDK45ao6v4rVgqAdetNaSXbbqdAPeoahqBF"
+    api_key = tumblr_api_key.get_tumblr_api_key()
 
     # pull first 20 posts
     post_url = f'https://api.tumblr.com/v2/blog/cercare-lestelle.tumblr.com/posts?&api_key={api_key}&type={type}'
